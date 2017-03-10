@@ -1,0 +1,19 @@
+parameters:
+    msales.string_mapper.abstract.class:     Msales\StringMapperBundle\StringMapper\Abstraction\AbstractStringMapper
+    msales.string_mapper.default.class:      Msales\StringMapperBundle\StringMapper\DefaultStringMapper
+    msales.string_mapper.whitelisting.class: Msales\StringMapperBundle\StringMapper\WhitelistingStringMapper
+
+services:
+    msales.string_mapper.abstract:
+        class: "%msales.string_mapper.abstract.class%"
+        abstract: true
+
+    msales.string_mapper.default:
+        class: "%msales.string_mapper.default.class%"
+        parent: msales.string_mapper.abstract
+        abstract: true
+
+    msales.string_mapper.whitelisting:
+        class: "%msales.string_mapper.whitelisting.class%"
+        parent: msales.string_mapper.abstract
+        abstract: true
